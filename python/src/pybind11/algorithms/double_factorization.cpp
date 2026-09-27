@@ -101,7 +101,15 @@ Returns:
   str: ``"hamiltonian_factorization"``.
 )");
 
-  double_factorization.def("hash", &DoubleFactorization::hash,
+  double_factorization.def("hash", &DoubleFactorization::hash, R"(
+Compute or return the hash representation for the given Hamiltonian under this factorizer.
+
+Args:
+  hamiltonian (qdk_chemistry.data.Hamiltonian): Hamiltonian to compute the hash for.
+
+Returns:
+  int: Calculated hash value.
+)",
                            py::arg("hamiltonian"));
 
   double_factorization.def("__repr__", [](const DoubleFactorization &) {
